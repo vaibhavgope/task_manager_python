@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.db.session import engine, Base
-from app.api import auth as auth_router, users as users_router, tasks as tasks_router
+from app.api import auth as auth_router, users as users_router, tasks as tasks_router, reports as reports_router
 import app.models.user
 import app.models.task
 import app.models.task_assignment
@@ -10,6 +10,7 @@ def create_app():
     app.include_router(auth_router.router)
     app.include_router(users_router.router)
     app.include_router(tasks_router.router)
+    app.include_router(reports_router.router)
     return app
 
 app = create_app()
